@@ -21,3 +21,11 @@ def revers_even(iterable):
     else:
         return iterable[-2::-2]
 ```
+
+## Convenient Type Checks
+### Example
+```python
+for item in collection:
+    if type(item) in [str, bool, list]:
+        # do something
+```

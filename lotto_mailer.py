@@ -165,14 +165,14 @@ def get_html_output_str():
             if hits >= 2:
                 output_str += ": <i>{:.2f} €, {:.2f} €</i>".format(*quote_tuple)
         output_str += "<br>"
-    output_str += "<br><u>Gesamtgewinn (ohne, mit SZ)</u>: <b>{:.2f} €</b>, <b>{:.2f} €</b>".format(win_without_sz, win_with_sz)
+    output_str += "<br><u>Gesamtgewinn (ohne, mit SZ)</u>: <b>{:.2f} €</b>, <b>{:.2f} €</b><br>".format(win_without_sz, win_with_sz)
     output_str += "<i>" + no_warranty_msg + "</i><br><br>" + bye_msg + "<br>" + name_msg
     return output_str
 
 
 # sendgrid stuff
 
-print("Your API key is: {}".format(os.environ.get('SENDGRID_API_KEY')))
+#print("Your API key is: {}".format(os.environ.get('SENDGRID_API_KEY')))
 sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
 from_email = Email("alex-schott@gmx.de")
 to_email = Email("alexschott87@gmail.com")

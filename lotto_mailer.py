@@ -31,11 +31,13 @@ def get_file_contents(filename):
             # with our API key
             return f.read().strip()
     except FileNotFoundError:
-        print("'%s' file not found" % filename)
+        print("'{}' file not found".format(filename))
         
 
 ### Initialisation
-os.environ['SENDGRID_API_KEY'] = get_file_contents("sendgrid_api_key")
+key = get_file_contents("sendgrid_api_key")
+if key != None:
+    os.environ['SENDGRID_API_KEY'] = key
 
 # parser stuff
 lotto_url = "https://www.lotto.de/lotto-6aus49/lottozahlen"

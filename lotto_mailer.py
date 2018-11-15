@@ -5,7 +5,7 @@ from requests import get
 import re, sendgrid, os
 from sendgrid.helpers.mail import *
 
-"""
+
 my_numbers = [  [3, 12, 17, 26, 30, 41],
                 [2, 3, 7, 10, 28, 37],
                 [1, 5, 7, 12, 14, 20],
@@ -19,7 +19,7 @@ my_numbers = [  [4, 9, 17, 26, 30, 41],
                 [18, 19, 20, 25, 31, 38],
                 [4, 12, 17, 25, 33, 37],
                 [4, 9, 22, 27, 31, 41]]
-
+"""
 def get_file_contents(filename):
     """ Given a filename,
         return the contents of that file

@@ -38,12 +38,46 @@ def multiply(*args):
     return multiplyer
 
 def stringcases(string):
-    try:
-        strcasetuple = string.upper(), string.lower(), string.capitalize(), string[::-1]
-        return strcasetuple
-    except AttributeError as err:
-        print(err)
-        return -1
+    return string.upper(), string.lower(), string.capitalize(), string[::-1]
+
+def combo(iter_1, iter_2):
+    """
+    Assume both iterables has same length
+    combo([1, 2, 3], 'abc')
+    Output:
+    [(1, 'a'), (2, 'b'), (3, 'c')]
+    """
+    combo_list = []
+    for x in range(len(iter_1)):
+        tupl = iter_1[x], iter_2[x]
+        combo_list.append(tupl)
+    return combo_list
+
+# +-----------------------------------+
+# |             sets                  |
+# +-----------------------------------+
+COURSES = {
+    "Python Basics": {"Python", "functions", "variables",
+                      "booleans", "integers", "floats",
+                      "arrays", "strings", "exceptions",
+                      "conditions", "input", "loops"},
+    "Java Basics": {"Java", "strings", "variables",
+                    "input", "exceptions", "integers",
+                    "booleans", "loops"},
+    "PHP Basics": {"PHP", "variables", "conditions",
+                   "integers", "floats", "strings",
+                   "booleans", "HTML"},
+    "Ruby Basics": {"Ruby", "strings", "floats",
+                    "integers", "conditions",
+                    "functions", "input"}
+}
+
+def covers(set_of_topics):
+    course_list = []
+    for course in COURSES:
+        if len(COURSES[course] & set_of_topics) == len(set_of_topics):
+            course_list.append(course)
+    return course_list
 
 # playground
-print(stringcases(34))
+print(covers({"conditions", "input"}))

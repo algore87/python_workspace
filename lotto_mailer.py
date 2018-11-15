@@ -20,6 +20,7 @@ my_numbers = [  [4, 9, 17, 26, 30, 41],
                 [4, 12, 17, 25, 33, 37],
                 [4, 9, 22, 27, 31, 41]]
 """
+
 def get_file_contents(filename):
     """ Given a filename,
         return the contents of that file
@@ -108,6 +109,11 @@ if game_amount.startswith("Spieleinsatz"):
 """
 Output
 """
+welcome_msg = "Hi Paps, im Anhang deine Lottoergebnisse."
+no_warranty_msg = "Alle Angaben ohne Gewähr."
+bye_msg = "Viele Grüße"
+name_msg = "Alexander Schott"
+
 def linebreak_adder_from_plain_to_html(s):
     s = s.replace('\n', "<br>")
     return s
@@ -136,7 +142,7 @@ def get_plain_output_str():
 print(get_plain_output_str())
 
 def get_html_output_str():
-    output_str = ""
+    output_str = welcome_msg + "<br><br>"
     output_str += "<u>" + lotto_dict["date"] + "</u><br>" \
     + "Gewinnzahlen: " + "<b>" + str(lotto_dict["numbers"])[1:-1] + "</b>" + " SZ: " + str(lotto_dict["super_nr"]) + "<br><br>" \
     + "<u>Ergebnis mit ggf. <i>Gewinn (ohne, mit SZ)</i></u>: " + "<br>"
@@ -158,6 +164,7 @@ def get_html_output_str():
                 output_str += ": <i>{:.2f} €, {:.2f} €</i>".format(*quote_tuple)
         output_str += "<br>"
     output_str += "<br><u>Gesamtgewinn (ohne, mit SZ)</u>: <b>{:.2f} €</b>, <b>{:.2f} €</b>".format(win_without_sz, win_with_sz)
+    output_str += "<i>" + no_warranty_msg + "</i><br><br>" + bye_msg + "<br>" + name_msg
     return output_str
 
 

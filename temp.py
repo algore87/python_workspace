@@ -39,3 +39,19 @@ text = "I do not like it Sam I Am"
 print(word_count(text))
 print(stats({'Andrew Chalkley': ['jQuery Basics', 'Node.js Basics'], #
 'Kenneth Love': ['Python Basics', 'Python Collections']}))
+
+class RaceCar():
+    def __init__(self, color, fuel_remaining, **kwargs):
+        self.laps = 0
+
+        self.color = color
+        self.fuel_remaining = fuel_remaining
+        self.__dict__.update(kwargs)
+    
+    def run_lap(self, length):
+        self.fuel_remaining -= 0.125 * length
+        self.laps += 1
+
+class Fruit():
+    def squeeze(self):
+		print("Squeezing")

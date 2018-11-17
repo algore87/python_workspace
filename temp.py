@@ -27,19 +27,69 @@ def stats(adict):
         stat_list.append([teacher, len(adict[teacher])])
     return stat_list
 
-# playground
-messy_list = ["a", 2, 3, 1, False, [1, 2, 3]]
+# +-----------------------------------+
+# |             tuples                |
+# +-----------------------------------+
+#### tuple packing/unpacking
+def multiply(*args):
+    multiplyer = 1
+    for arg in args:
+        multiplyer *= arg
+    return multiplyer
 
-messy_list.insert(0, messy_list.pop(3))
-for item in messy_list.copy():
-    if type(item) in [str, bool, list]:
-        print("found")
+def stringcases(string):
+    return string.upper(), string.lower(), string.capitalize(), string[::-1]
+
+def combo(iter_1, iter_2):
+    """
+    Assume both iterables has same length
+    combo([1, 2, 3], 'abc')
+    Output:
+    [(1, 'a'), (2, 'b'), (3, 'c')]
+    """
+    combo_list = []
+    for x in range(len(iter_1)):
+        tupl = iter_1[x], iter_2[x]
+        combo_list.append(tupl)
+    return combo_list
+
+# +-----------------------------------+
+# |             sets                  |
+# +-----------------------------------+
+COURSES = {
+    "Python Basics": {"Python", "functions", "variables",
+                      "booleans", "integers", "floats",
+                      "arrays", "strings", "exceptions",
+                      "conditions", "input", "loops"},
+    "Java Basics": {"Java", "strings", "variables",
+                    "input", "exceptions", "integers",
+                    "booleans", "loops"},
+    "PHP Basics": {"PHP", "variables", "conditions",
+                   "integers", "floats", "strings",
+                   "booleans", "HTML"},
+    "Ruby Basics": {"Ruby", "strings", "floats",
+                    "integers", "conditions",
+                    "functions", "input"}
+}
 
 text = "I do not like it Sam I Am"
 print(word_count(text))
 print(stats({'Andrew Chalkley': ['jQuery Basics', 'Node.js Basics'], #
 'Kenneth Love': ['Python Basics', 'Python Collections']}))
 
+def covers(set_of_topics):
+    course_list = []
+    for course in COURSES:
+        if len(COURSES[course] & set_of_topics) == len(set_of_topics):
+            course_list.append(course)
+    return course_list
+
+# playground
+print(covers({"conditions", "input"}))
+
+# +-----------------------------------+
+# |          Object Orientation       |
+# +-----------------------------------+
 class RaceCar():
     def __init__(self, color, fuel_remaining, **kwargs):
         self.laps = 0
@@ -53,5 +103,8 @@ class RaceCar():
         self.laps += 1
 
 class Fruit():
-    def squeeze(self):
+	def squeeze(self):
 		print("Squeezing")
+
+
+
